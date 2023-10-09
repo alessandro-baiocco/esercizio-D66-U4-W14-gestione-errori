@@ -1,4 +1,4 @@
-package Exception;
+package exception;
 
 public class NotValidInputException extends Exception {
     public NotValidInputException(String message) {
