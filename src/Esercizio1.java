@@ -1,4 +1,6 @@
-import exception.NotValidInputException;
+import com.sun.tools.javac.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -6,7 +8,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Esercizio1 {
-    public static void main(String[] args) throws NotValidInputException {
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
+
+    public static void main(String[] args) {
         Random rnd = new Random();
         Scanner input = new Scanner(System.in);
         int[] number = new int[5];
@@ -14,15 +18,13 @@ public class Esercizio1 {
             number[i] = rnd.nextInt(1, 10);
         }
         stampaValori(input, number);
-
-
     }
 
 
-    public static void stampaValori(Scanner input, int[] number) throws NotValidInputException {
+    public static void stampaValori(Scanner input, int[] number) {
         try (input) {
             while (true) {
-                System.out.println(Arrays.toString(number));
+                log.info(Arrays.toString(number));
                 int userInput = input.nextInt();
                 if (userInput == 0) break;
                 else System.out.println(number[userInput - 1]);
@@ -33,6 +35,8 @@ public class Esercizio1 {
             System.err.println("il massimo è 5");
         } catch (Exception ex) {
             System.err.println("errore generico");
+        } finally {
+            input.close();
         }
 
 

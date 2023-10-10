@@ -11,10 +11,10 @@ public class Esercizio3 {
 
 
         try {
-            conto1.preleva(9999);
+            conto1.preleva(49999);
             System.out.println("Saldo conto: " + conto1.restituisciSaldo());
         } catch (BancaException e) {
-            System.out.println("Errore durante il prelievo: " + e);
+            System.out.println("Errore durante il prelievo: " + e.toString());
             e.printStackTrace();
         }
 

@@ -10,9 +10,9 @@ public class Esercizio2 {
             System.out.println("inserire km");
             int kmPercorsi = input.nextInt();
             System.out.println("inserire carburante consumato");
-            double fuel = input.nextDouble();
-            if (kmPercorsi > 0 && fuel > 0) {
-                double fuelOnKm = kmPercorsi / fuel;
+            int fuel = input.nextInt();
+            if (kmPercorsi >= 0 && fuel >= 0) {
+                int fuelOnKm = kmPercorsi / fuel;
                 System.out.println("la macchina fa " + fuelOnKm + " al litro");
             } else {
                 throw new NegativeNumberException("non è possibile mettere numeri negativi");
